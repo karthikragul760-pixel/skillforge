@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - SkillForge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; height: 100vh; overflow: hidden; }
+    .container-fluid { display: flex; height: 100vh; padding: 0; }
+
+    /* LEFT PANEL */
+    .left-panel {
+      background: linear-gradient(180deg, #ff6600, #333);
+      color: #fff;
+      width: 50%;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .logo img { width: 100px; margin-bottom: 40px; }
+    .left-panel h1 { font-size: 2.3rem; font-weight: 700; line-height: 1.4; }
+    .highlight { color: #ffe600; }
+    .illustration { margin-top: 40px; text-align: center; }
+    .illustration img { width: 80%; max-width: 420px; }
+
+    /* RIGHT PANEL */
+    .right-panel {
+      background-color: #fff;
+      width: 50%;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .right-panel h2 { font-weight: 700; margin-bottom: 10px; color: #333; }
+    .signup-text { font-size: 15px; margin-bottom: 20px; }
+    .signup-text a { color: #ff6600; text-decoration: none; font-weight: 600; }
+    .signup-text a:hover { text-decoration: underline; }
+    .form-control { border-radius: 8px; padding: 12px; }
+    .login-btn {
+      background-color: #ff6600; color: white; border: none; width: 100%;
+      border-radius: 8px; padding: 12px; font-weight: 600; transition: 0.3s;
+    }
+    .login-btn:hover { background-color: #333; }
+    .forgot-link { color: #ff6600; font-size: 14px; text-decoration: none; }
+    .forgot-link:hover { text-decoration: underline; }
+
+    @media (max-width: 992px) {
+      body { overflow-y: auto; }
+      .container-fluid { flex-direction: column; height: auto; }
+      .left-panel, .right-panel { width: 100%; padding: 40px; text-align: center; }
+      .illustration img { width: 70%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <!-- Left Section -->
+    <div class="left-panel">
+      <div class="logo">
+        <img src="/static/images/sf.jpeg" alt="SkillForge Logo" />
+      </div>
+      <h1>Get Codified with our<br /><span class="highlight">New Features!</span></h1>
+      <div class="illustration">
+        <img src="https://cdn-icons-png.flaticon.com/512/8679/8679079.png" alt="Coding Illustration" />
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-panel">
+      <h2>Login</h2>
+      <p class="signup-text">
+        Don't have an account?
+        <a href="/">Signup</a>
+      </p>
+
+      {% if msg %}
+      <div class="text-center text-danger fw-semibold mb-3">{{ msg }}</div>
+      {% endif %}
+
+      <form method="POST" action="/login">
+        <input type="email" class="form-control mb-3" name="email" placeholder="Email Address" required />
+        <input type="password" class="form-control mb-3" name="password" placeholder="Password" required />
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="remember" />
+            <label for="remember" class="form-check-label">Keep me logged in</label>
+          </div>
+          <a href="/forgot-password" class="forgot-link">Forgot password?</a>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

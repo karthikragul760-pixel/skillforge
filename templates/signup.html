@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - SkillForge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+    body { height: 100vh; display: flex; background: #f4f4f4; }
+
+    /* LEFT SIDE */
+    .left-section {
+      flex: 1;
+      background: linear-gradient(180deg, #ff6600 0%, #ff8533 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 70px;
+      position: relative;
+    }
+    .logo { position: absolute; top: 30px; left: 40px; width: 100px; height: auto; }
+    .left-section h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 20px; line-height: 1.3; }
+    .left-section h1 span { color: #ff8533; background: #fff; padding: 0 6px; border-radius: 4px; }
+    .left-section ul { list-style: none; padding: 0; margin-top: 20px; }
+    .left-section ul li { font-size: 1.1rem; margin: 12px 0; display: flex; align-items: center; }
+    .left-section ul li::before { content: "✔"; margin-right: 10px; font-weight: bold; }
+
+    /* RIGHT SIDE */
+    .right-section { flex: 1; display: flex; justify-content: center; align-items: center; padding: 40px; }
+    .signup-box {
+      width: 100%; max-width: 420px; padding: 40px; border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: #f9f9f9;
+    }
+    .signup-box h2 { text-align: center; font-weight: 700; margin-bottom: 30px; color: #333; }
+    .btn-custom { background: #ff6600; color: #fff; border: none; width: 100%; padding: 14px; border-radius: 30px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; }
+    .btn-custom:hover { background: #cc5200; }
+    .form-control { border-radius: 30px; padding: 12px 15px; font-size: 0.95rem; border: 1px solid #ccc; }
+    .extra-text { text-align: center; margin-top: 18px; font-size: 14px; color: #666; }
+    .extra-text a { color: #ff6600; text-decoration: none; font-weight: 600; }
+    .extra-text a:hover { color: #cc5200; }
+
+    @media (max-width: 992px) {
+      body { flex-direction: column; }
+      .left-section { padding: 50px 25px; text-align: center; align-items: center; }
+      .logo { position: relative; top: 0; left: 0; margin-bottom: 25px; }
+      .right-section { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LEFT SECTION -->
+  <div class="left-section">
+    <img src="/static/images/SF.JPEG" class="logo" alt="SkillForge Logo">
+    <h1>Get your First Course for<br><span>FREE with SkillForge!</span></h1>
+    <ul>
+      <li>Sign up with SkillForge.</li>
+      <li>Confirm your account through email.</li>
+      <li>Receive your unique coupon code.</li>
+      <li>Use the code to get your first course free!</li>
+    </ul>
+  </div>
+
+  <!-- RIGHT SECTION -->
+  <div class="right-section">
+    <div class="signup-box">
+      <h2>Create Account</h2>
+
+      {% if msg %}
+      <p class="text-center text-danger fw-semibold">{{ msg }}</p>
+      {% endif %}
+
+      <form method="POST" action="/register">
+        <div class="mb-3">
+          <input type="text" class="form-control" name="full_name" placeholder="Full Name" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control" name="password" placeholder="Password" required>
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" required>
+        </div>
+        <div class="mb-3">
+          <input type="tel" class="form-control" name="mobile" placeholder="Mobile Number (+91)" required>
+        </div>
+        <button type="submit" class="btn btn-custom">Sign Up</button>
+      </form>
+
+      <div class="extra-text">
+        Already have an account? <a href="/login">Login</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

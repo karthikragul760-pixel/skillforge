@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillForge - GUVI Inspired</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, Helvetica, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: #f4f4f4; color: #333; }
+
+   body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 8px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  font-family: 'Montserrat', Arial, sans-serif;
+  min-height: 58px;
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 28px;
+  width: auto;
+  vertical-align: middle;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tagline {
+  color: #7a7a7a;
+  font-size: 12px;
+  margin-left: 9px;
+  letter-spacing: 1.3px;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+}
+.navbar-menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+.navbar-menu ul li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu ul li a {
+  text-decoration: none;
+  color: #7a7a87;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-menu ul li a:hover {
+  color: #ff6600;
+}
+
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.login-btn {
+  color: #ff6600;
+  font-size: 16px;
+  font-weight: 600;
+  background: none;
+  padding: 4px 13px;
+  border-radius: 6px;
+  border: none;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.signup-btn {
+  color: #fff;
+  background: #ff6600;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 21px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.signup-btn:hover {
+  background: #ff6600;
+}
+.login-btn:hover {
+  background: #eafaf1;
+}
+
+    /* Hero */
+    .hero { text-align:center; padding:100px 20px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/static/images/back.jpeg') center/cover no-repeat; color:white; }
+    .hero h1 { font-size:48px; margin-bottom:20px; color:#ff6600; }
+    .hero p { font-size:20px; margin-bottom:30px; }
+    
+    /* Section Titles */
+    h2.section-title { color:#ff6600; margin-bottom:40px; text-align:center; font-size:32px; }
+
+    /* Courses Section */
+    .courses { padding:60px 20px; }
+    .course-grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); max-width:1200px; margin:0 auto; }
+    .course-card { background:white; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:0.3s; }
+    .course-card:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
+    .course-card h3 { color:#ff6600; margin-bottom:10px; }
+    .course-card p { font-size:16px; margin-bottom:15px; }
+
+   .accreditations {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.section-title {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.logo-marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-track {
+  display: flex;
+  width: calc(13 * 2 * 200px); /* number of logos * 2 (duplicates) * logo width */
+  animation: scroll 20s linear infinite;
+}
+
+.logo-item {
+  flex: 0 0 auto;
+  width: 200px;
+  margin: 0 20px;
+}
+
+.logo-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Continuous scrolling animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* move half of track (the duplicated part) */
+}
+
+.journey {
+  padding: 60px 0;
+  background: #f9f9f9;
+  position: relative;
+}
+
+.journey .section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.journey-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+.journey-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.journey-card {
+  flex: 0 0 280px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.journey-card:hover {
+  transform: translateY(-5px);
+}
+
+.journey-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  border: 2px solid #ff6600;
+}
+
+.learner-card img {
+  width: 80px;          /* same width */
+  height: 80px;         /* same height */
+  object-fit: cover;    /* keeps face visible, crops extra */
+  border-radius: 50%;   /* perfect circle */
+  margin-bottom: 12px;
+  border: 2px solid #ff6600; /* optional highlight */
+}
+
+
+
+.journey-card h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.journey-card .company {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.journey-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Reviews Section */
+.reviews {
+  background: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+.reviews .section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+.review-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  background: #f9f9f9;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.google-logo {
+  width: 60px;
+  height: auto;
+}
+.review-content h3 {
+  font-size: 22px;
+  margin: 0;
+  color: #333;
+}
+.review-content .rating {
+  color: #ff6600;
+  font-weight: bold;
+}
+.review-content p {
+  margin: 5px 0 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Companies Section */
+.companies {
+  background: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+.companies .section-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Each row */
+.company-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  margin-bottom: 30px;
+}
+
+/* Left to Right / Right to Left */
+.company-row.rtl {
+  flex-direction: row-reverse;
+}
+
+.company-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  flex-wrap: nowrap;
+  overflow: hidden; /* hide overflowing logos */
+  animation: scroll-ltr 20s linear infinite;
+}
+
+.company-row.rtl {
+  animation: scroll-rtl 20s linear infinite;
+}
+
+.company-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.company-track {
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap;
+  animation: scroll-ltr 30s linear infinite;
+}
+
+.company-track.rtl {
+  animation: scroll-rtl 30s linear infinite;
+}
+
+.company-item img {
+  width: 100px;
+  height: 70px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: 0.3s;
+}
+
+.company-item img:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+/* Left to Right Animation */
+@keyframes scroll-ltr {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Right to Left Animation */
+@keyframes scroll-rtl {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+
+* 🔹 Stats Section -Orange Theme */
+.stats {
+  padding: 70px 0;
+  background: #fff; /* white background */
+}
+
+.stats .section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ff6600; /* orange heading */
+  margin-bottom: 40px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff6600; /* orange numbers */
+  margin-bottom: 6px;
+}
+
+.stat-text {
+  font-size: 1rem;
+  color: #555; /* grey text */
+  margin: 0;
+}
+
+.stat-number:hover {
+  color: #e65c00; /* darker orange on hover */
+  transition: 0.3s;
+}
+
+/* Optional: small hover effect for modern feel */
+.stat-number:hover {
+  color: #ff6600;
+  transition: 0.3s;
+}
+
+.circular-chart {
+  max-width: 120px;
+  max-height: 120px;
+}
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke: #ff6600;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.3s;
+}
+.percentage {
+  font-size: 0.5em;
+  fill: #333;
+  font-weight: bold;
+}
+/* 🔹 Nav Pills */
+.nav-pills .nav-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  border-radius: 22px;
+  margin-right: 10px;
+  padding: 0.6rem 2rem;
+}
+.nav-pills .nav-link.active {
+  background: #d1f1e0;
+  color:#ff6600 ;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(20,150,100,0.05);
+}
+
+  .marquee-wrap{
+      width:100%;
+      max-width:1200px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.85));
+      border-radius:12px;
+      box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+      padding:18px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .marquee-inner{
+      display:flex;
+      gap: var(--card-gap);
+      align-items:center;
+      /* this element will be animated by JS (inline style) */
+      will-change: transform;
+    }
+
+    .marquee-track{
+      display:flex;
+      gap: var(--card-gap);
+      align-items:center;
+      /* we keep track as flex container; we'll clone its children */
+    }
+
+     .courses-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .courses-row::-webkit-scrollbar {
+    display: none;
+  }
+  .course-card {
+    min-width: 260px;
+    max-width: 260px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    margin: 0 4px;
+    flex: none;
+    position: relative;
+    transition: transform .2s;
+  }
+  .course-card:hover {
+    transform: translateY(-8px) scale(1.03);
+  }
+  .paid-tag {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 8px;
+    margin-top: 8px;
+    background: #39c183;
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 2px 12px;
+    border-radius: 10px;
+  }
+  .course-img img {
+    display: block;
+    margin: 16px auto 8px auto;
+    height: 64px;
+  }
+  .course-title {
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 7px;
+  }
+  .course-meta span {
+    font-size: 0.96em;
+    margin-right: 12px;
+    color: #595959;
+  }
+  .scroll-btn {
+    background: #fff;
+    border: none;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .scroll-btn:active {
+    background: #f4f4f4;
+  }
+    
+/* 🔹 Paid Tag */
+.paid-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff6600;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* 🔹 Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+.scroll-btn.left { left: -20px; }
+.scroll-btn.right { right: -20px; }
+
+/* 🔹 Animation */
+@keyframes scrollCourses {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+
+ .corporate-feature {
+      flex: 1 1 0;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 160px;
+      max-width: 210px;
+      position: relative;
+    }
+    .corporate-feature-icon {
+      background:#ff6600;
+      border-radius: 16px;
+      height: 60px;
+      width: 60px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      box-shadow: 0 2px 16px rgba(44,180,90,.08);
+      position: relative;
+      z-index: 2;
+    }
+    .corporate-feature-title {
+      margin-top: 8px;
+      font-size: 1.28rem;
+      font-weight: 600;
+      color: #222;
+    }
+    .corporate-feature::after {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 56px;
+      border-right: 2px dotted #ccc;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 2px;
+      z-index: 1;
+    }
+    .corporate-feature:last-child::after { display: none; }
+    @media (max-width: 900px) {
+      .corporate-features { flex-wrap: wrap; justify-content: center; }
+      .corporate-feature { margin-bottom: 45px; max-width: 99vw; }
+    }
+    @media (max-width: 600px) {
+      .corporate-features { flex-direction: column; }
+      .corporate-feature::after { display: none; }
+    }
+
+/* Pause on hover */
+.courses-wrapper:hover .courses-row {
+  animation-play-state: paused;
+}
+
+/* Company items */
+.company-item img {
+  width: 100px;
+  max-height: 70px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: 0.3s;
+}
+.company-item img:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ff6600;
+  border: none;
+  color: white;
+  font-size: 22px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-btn:hover {
+  background: #333;
+  color: #ffcc99;
+}
+
+.scroll-left { left: 20px; }
+.scroll-right { right: 20px; }
+
+
+/*fullform*/
+  .section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px;
+      background: #f8fafc;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left img {
+      width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+      object-fit: cover;
+      margin-right: 40px;
+    }
+    .right {
+      flex: 2;
+      max-width: 600px;
+    }
+    .right h1 {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+      color: #222;
+      font-weight: 700;
+    }
+    .right p {
+      margin-bottom: 28px;
+      color: #555;
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+    .acronym {
+      margin-top: 12px;
+      font-size: 1.22rem;
+      color: #ff6600;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .acronym span {
+      color: #222;
+      font-weight: 400;
+    }
+    .acronym u {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+
+    /* Stats Section */
+    .stats { background:#fff; padding:60px 20px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px; text-align:center; }
+    .stat { flex:1 1 200px; padding:20px; background:#f8f8f8; border-radius:12px; }
+    .stat h3 { font-size:28px; color:#ff6600; margin-bottom:10px; }
+
+    /* Corporate Section */
+    .corporate { padding:60px 20px; text-align:center; background:#f4f4f4; }
+    .corporate .card { padding:20px; background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:0.3s; }
+    .corporate .card:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
+
+    /* Free Resources */
+    .resources { background:#fff3e0; padding:60px 20px; text-align:center; }
+    .resources h2 { color:#ff6600; margin-bottom:20px; }
+    .resources p { font-size:18px; margin-bottom:20px; }
+
+    /* Footer */
+    footer { background:#333; color:white; padding:40px 20px; text-align:center; }
+    footer a { color:#ff6600; margin:0 10px; text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+
+    /* Responsive */
+    @media (max-width:768px){ 
+      .navbar .menu ul { flex-direction:column; gap:10px; }
+      .logo-item img { max-height:40px; }
+      .logo-track { gap:30px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-left">
+    <img src="/static/images/SF.JPEG" alt="Logo" class="logo">
+    <span class="tagline">SkillForge</span>
+  </div>
+  <div class="navbar-menu">
+    <ul>
+      <li><a href="#courses"></a></li>
+    </div>
+
+  <div class="navbar-buttons">
+
+  <div class="navbar-buttons">
+ 
+  </div>
+
+  <nav class="navbar navbar-expand-lg px-4 py-2" style="background: linear-gradient(80deg, #6f00);">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <a class="navbar-brand fw-bold text-white" href="/web"></a>
+    <div class="text-end">
+      <div class="mb-1 fw-semibold" style="font-size: 1.05rem; color: #000;">
+        👋 Welcome, {{ username }}
+      </div>
+      <div>
+        <a href="/profile" class="btn btn-light btn-sm me-2 fw-semibold">My Profile</a>
+        <a href="/logout" class="btn btn-danger btn-sm fw-semibold">Logout</a>
+      </div>
+    </div>
+  </div>
+  </nav>
+</nav>
+</div>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Project-Based Learning with Placement Guidance</h1>
+    <p>Learn at your pace, explore, master & succeed. 1000+ courses, 3M+ learners worldwide.</p>
+    
+  </section>
+
+
+<!-- 🔹 Explore Our Courses (GUVI Style) -->
+<section class="explore-courses py-5" style="background:#f9f9f9;">
+  <div class="container text-center">
+
+    <!-- Heading -->
+    <h2 class="section-title mb-3" style="color:#ff6600; font-weight:700;">
+      Your Learning, Your Pace: Explore, Master, Succeed
+    </h2>
+    <p class="section-subtitle mb-5" style="font-size:18px; color:#555;">
+      Choose from <strong>1000+ exclusive courses</strong> with new courses being published every month.
+    </p>
+
+    <!-- Course Categories Grid -->
+    <div class="row g-4">
+
+       <div class="container py-5">
+    <!-- Category Tabs -->
+    <ul class="nav nav-pills mb-4" id="categoryTabs">
+      <li class="nav-item"><button class="nav-link active" onclick="switchCategory('business')">Business & Management</button></li>
+      <li class="nav-item"><button class="nav-link" onclick="switchCategory('data')">Data Science & AI</button></li>
+      <li class="nav-item"><button class="nav-link" onclick="switchCategory('engineering')">Engineering & Design</button></li>
+      <li class="nav-item"><button class="nav-link" onclick="switchCategory('network')">IT & Software,Network & Security</button></li>
+      <li class="nav-item"><button class="nav-link" onclick="switchCategory('programming')">Programming</button></li>
+      <li class="nav-item"><button class="nav-link" onclick="switchCategory('creative')">Creative & User Experience</button></li>
+    </ul>
+
+
+    <!-- Courses Row -->
+    <div class="courses-row" id="coursesRow"></div>
+  </div>
+
+  <script>
+    const courses = {
+      business: [
+        {img:"/static/images/images1.jpeg",title:"Business Analytics for Beginners",time:"3 Hrs",lang:"English",paid:true,link:"/Business"},
+        {img:"/static/images/image2.jpeg",title:"Project Management Fundamentals",time:"4 Hrs",lang:"English",paid:true,link:"/Project-Management-Fundamentals"},
+        {img:"/static/images/images3.jpeg",title:"Leadership & Team Building",time:"2 Hrs",lang:"English",paid:true,link:"/Leadership-&-Team-Building"},
+        {img:"/static/images/images4.jpeg",title:"Marketing Strategy Masterclass",time:"3 Hrs",lang:"English",paid:true,link:"/Marketing-Strategy-Masterclass"},
+        {img:"/static/images/images5.jpeg",title:"Financial Management Essentials",time:"3 Hrs",lang:"English",paid:true,link:"/Financial-Management-Essentials"},
+        {img:"/static/images/images6.jpeg",title:"Entrepreneurship & Startup Growth",time:"2.5 Hrs",lang:"English",paid:true,link:"/Entrepreneurship-&-Startup-Growth"},
+        {img:"/static/images/images7.jpeg",title:"Operations & Supply Chain Management",time:"2 Hrs",lang:"English",paid:true,link:"/Operations-&-Supply-Chain-Management"},
+        {img:"/static/images/images8.jpeg",title:"Business Communication Skills",time:"2 Hrs",lang:"English",paid:true,link:"/Business-Communication-Skills"},
+        {img:"/static/images/images9.jpeg",title:"Customer Relationship Management",time:"3 Hrs",lang:"English",paid:true,link:"/Customer-Relationship-Management"},
+        {img:"/static/images/images10.jpeg",title:"Human Resource Management Basics",time:"2 Hrs",lang:"English",paid:true,link:"/Human-Resource-Management-Basics"},
+      ],
+      data: [
+        {img:"/static/images/images11.jpeg",title:"Python for Data Science",time:"5 Hrs",lang:"English",paid:true,link:"/Python-for-Data-Science"},
+        {img:"/static/images/images12.jpeg",title:"Machine Learning with Scikit-Learn",time:"6 Hrs",lang:"English",paid:true,link:"/Machine-Learning-with-Scikit-Learn"},
+        {img:"/static/images/images13.jpeg",title:"Deep Learning with TensorFlow",time:"5 Hrs",lang:"English",paid:true,link:"/Deep-Learning-with-TensorFlow"},
+        {img:"/static/images/images14.jpeg",title:"Data Visualization using Power BI",time:"4 Hrs",lang:"English",paid:true,link:"/Data-Visualization-using-Power-BI"},
+        {img:"/static/images/images15.jpeg",title:"Big Data Analytics with Hadoop",time:"5 Hrs",lang:"English",paid:true,link:"/Big-Data-Analytics-with-Hadoop"},
+        {img:"/static/images/images16.jpeg",title:"Natural Language Processing Basics",time:"3 Hrs",lang:"English",paid:true,link:"/Natural-Language-Processing-Basics"},
+        {img:"/static/images/images17.jpeg",title:"Computer Vision with OpenCV",time:"5 Hrs",lang:"English",paid:true,link:"/Computer-Vision-with-OpenCV"},
+        {img:"/static/images/images18.jpeg",title:"AI for Business Applications",time:"4 Hrs",lang:"English",paid:true,link:"/AI-for-Business-Applications"},
+        {img:"/static/images/images19.jpeg",title:"Data Wrangling with Pandas",time:"3 Hrs",lang:"English",paid:true,link:"/Data-Wrangling-with-Pandas"},
+        {img:"/static/images/images20.jpeg",title:"Statistics for Data Science",time:"4 Hrs",lang:"English",paid:true,link:"/Statistics-for-Data-Science"},
+      ],
+      engineering: [
+        {img:"/static/images/images21.jpeg",title:"AutoCAD for Beginners",time:"3 Hrs",lang:"English",paid:true,link:"/AutoCAD-for-Beginners"},
+        {img:"/static/images/images22.jpeg",title:"Mechanical Engineering Fundamentals",time:"4 Hrs",lang:"English",paid:true,link:"/Mechanical-Engineering-Fundamentals"},
+        {img:"/static/images/images23.jpeg",title:"Electrical Circuit Design Basics",time:"3 Hrs",lang:"English",paid:true,link:"/Electrical-Circuit-Design-Basics"},
+        {img:"/static/images/images24.jpeg",title:"3D Modeling with SolidWorks",time:"4 Hrs",lang:"English",paid:true,link:"/3D-Modeling-with-SolidWorks"},
+        {img:"/static/images/images25.jpeg",title:"Civil Engineering Project Planning",time:"5 Hrs",lang:"English",paid:true,link:"/Civil-Engineering-Project-Planning"},
+        {img:"/static/images/images26.jpeg",title:"Structural Analysis Made Easy",time:"3 Hrs",lang:"English",paid:true,link:"/Structural-Analysis-Made-Easy"},
+        {img:"/static/images/images27.jpeg",title:"Design Thinking for Engineers",time:"2 Hrs",lang:"English",paid:true,link:"/Design-Thinking-for-Engineers"},
+        {img:"/static/images/images28.jpeg",title:"Introduction to Robotics",time:"5 Hrs",lang:"English",paid:true,link:"/Introduction-to-Robotics"},
+        {img:"/static/images/images29.jpeg",title:"Thermodynamics & Heat Transfer",time:"4 Hrs",lang:"English",paid:true,link:"/Thermodynamics-&-Heat-Transfer"},
+        {img:"/static/images/images30.jpeg",title:"Product Design & Innovation",time:"3 Hrs",lang:"English",paid:true,link:"/Product-Design-&-Innovation"},
+      ],
+      
+      network: [
+        {img:"/static/images/images31.jpeg",title:"Introduction to Networking",time:"4 Hrs",lang:"English",paid:true,link:"/Introduction-to-Networking"},
+        {img:"/static/images/images32.jpeg",title:"Network Protocols Explained",time:"3 Hrs",lang:"English",paid:true,link:"/Network-Protocols-Explained"},
+        {img:"/static/images/images33.jpeg",title:"Cybersecurity Essentials",time:"5 Hrs",lang:"English",paid:true,link:"/Cybersecurity-Essentials"},
+        {img:"/static/images/images34.jpeg",title:"Ethical Hacking Fundamentals",time:"4 Hrs",lang:"English",paid:true,link:"/Ethical-Hacking-Fundamentals"},
+        {img:"/static/images/images35.jpeg",title:"Wireshark for Beginners",time:"3 Hrs",lang:"English",paid:true,link:"/Wireshark-for-Beginners"},
+        {img:"/static/images/images36.jpeg",title:"Cloud Security Basics",time:"4 Hrs",lang:"English",paid:true,link:"/Cloud-Security-Basics"},
+        {img:"/static/images/images37.jpeg",title:"Firewalls & VPN Configuration",time:"3 Hrs",lang:"English",paid:true,link:"/Firewalls-&-VPN-Configuration"},
+        {img:"/static/images/images38.jpeg",title:"Incident Response Management",time:"3 Hrs",lang:"English",paid:true,link:"/Incident-Response-Management"},
+        {img:"/static/images/images39.jpeg",title:"Identity & Access Management",time:"4 Hrs",lang:"English",paid:true,link:"/Identity-&-Access-Management"},
+        {img:"/static/images/images40.jpeg",title:"Penetration Testing Made Easy",time:"5 Hrs",lang:"English",paid:true,link:"/Penetration-Testing-Made-Easy"},
+      ],
+      programming: [
+        {img:"/static/images/images41.jpeg",title:"Python Programming Basics",time:"3 Hrs",lang:"English",paid:true,link:"/Python-Programming-Basics"},
+        {img:"/static/images/images42.jpeg",title:"Java Programming Fundamentals",time:"3 Hrs",lang:"English",paid:true,link:"/Java-Programming-Fundamentals"},
+        {img:"/static/images/images43.jpeg",title:"C++ for Problem Solving",time:"4 Hrs",lang:"English",paid:true,link:"/C++-for-Problem-Solving"},
+        {img:"/static/images/images44.jpeg",title:"JavaScript from Scratch",time:"4 Hrs",lang:"English",paid:true,link:"/JavaScript-from-Scratch"},
+        {img:"/static/images/images45.jpeg",title:"Data Structures & Algorithms",time:"5 Hrs",lang:"English",paid:true,link:"/Data-Structures-&-Algorithms"},
+        {img:"/static/images/images46.jpeg",title:"Web Development with React",time:"5 Hrs",lang:"English",paid:true,link:"/Web-Development-with-React"},
+        {img:"/static/images/images47.jpeg",title:"Mobile Programming with Kotlin",time:"4 Hrs",lang:"English",paid:true,link:"/Mobile-Programming-with-Kotlin"},
+        {img:"/static/images/images48.jpeg",title:"Go Programming Essentials",time:"3 Hrs",lang:"English",paid:true,link:"/Go-Programming-Essentials"},
+        {img:"/static/images/images49.jpeg",title:"Rust Programming for Beginners",time:"4 Hrs",lang:"English",paid:true,link:"/Rust-Programming-for-Beginners"},
+        {img:"/static/images/images50.jpeg",title:"PHP & MySQL Web Development",time:"5 Hrs",lang:"English",paid:true,link:"/PHP-&-MySQL-Web-Development"},
+      ],
+      creative: [
+        {img:"/static/images/images51.jpeg",title:"UI UX Design Fundamentals",time:"4 Hrs",lang:"English",paid:true,link:"/UI-UX-Design-Fundamentals"},
+        {img:"/static/images/images52.jpeg",title:"Figma for Beginners",time:"3 Hrs",lang:"English",paid:true,link:"/Figma-for-Beginners"},
+        {img:"/static/images/images53.jpeg",title:"Adobe Photoshop Basics",time:"2 Hrs",lang:"English",paid:true,link:"/Adobe-Photoshop-Basics"},
+        {img:"/static/images/images54.jpeg",title:"Canva Design Masterclass",time:"4 Hrs",lang:"English",paid:true,link:"/Canva-Design-Masterclass"},
+        {img:"/static/images/images55.jpeg",title:"Wireframing & Prototyping",time:"4 Hrs",lang:"English",paid:true,link:"/Wireframing-&-Prototyping"},
+        {img:"/static/images/images56.jpeg",title:"Motion Graphics with After Effects",time:"4 Hrs",lang:"English",paid:true,link:"/Motion-Graphics-with-After-Effects"},
+        {img:"/static/images/images57.jpeg",title:"Graphic Design Principles",time:"3 Hrs",lang:"English",paid:true,link:"/Graphic-Design-Principles"},
+        {img:"/static/images/images58.jpeg",title:"Human-Computer Interaction",time:"3 Hrs",lang:"English",paid:true,link:"/Human-Computer-Interaction"},
+        {img:"/static/images/images59.jpeg",title:"Web Accessibility Basics",time:"4 Hrs",lang:"English",paid:true,link:"/Web-Accessibility-Basics"},
+        {img:"/static/images/images60.jpeg",title:"Brand Identity Design",time:"3 Hrs",lang:"English",paid:true,link:"/Brand-Identity-Design"},
+      ]
+    };
+
+   let scrollInterval = null;
+
+// Render courses as before
+function renderCourses(category) {
+  const coursesRow = document.getElementById('coursesRow');
+  coursesRow.innerHTML = '';
+
+  courses[category].forEach(c => {
+    coursesRow.innerHTML += `
+      <a href="${c.link || '#'}" class="text-decoration-none text-dark" style="flex:0 0 auto;">
+        <div class="course-card position-relative">
+          ${c.paid ? '<span class="paid-tag">Paid</span>' : ''}
+          <div class="course-img"><img src="${c.img}" alt="${c.title}" style="height:64px;"></div>
+          <div class="p-3 pb-4">
+            <div class="course-title">${c.title}</div>
+            <div class="course-meta">
+              <span><i class="bi bi-clock"></i> ${c.time}</span>
+              <span><i class="bi bi-translate"></i> ${c.lang}</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    `;
+  });
+
+  startAutoScroll();
+}
+
+
+// Scroll function as before
+function scrollCourses(offset) {
+  document.getElementById('coursesRow').scrollBy({left: offset, behavior: 'smooth'});
+}
+
+// Automatic scroll function
+function startAutoScroll() {
+  clearInterval(scrollInterval); // Clear old interval if any
+  const row = document.getElementById('coursesRow');
+  scrollInterval = setInterval(() => {
+    // Amount to scroll: width of 1 card + gap (change 280 if your card is wider/narrower)
+    row.scrollBy({left: 280, behavior: 'smooth'});
+    // If reached near end, scroll back to start for looped effect
+    if (row.scrollLeft + row.clientWidth + 50 >= row.scrollWidth) {
+      setTimeout(() => row.scrollTo({left: 0, behavior: 'smooth'}), 1000);
+    }
+  }, 4000); // 4 seconds
+}
+
+// Category switch: call renderCourses as before
+function switchCategory(cat) {
+  document.querySelectorAll('#categoryTabs .nav-link').forEach(btn => btn.classList.remove('active'));
+  document.querySelector(`#categoryTabs .nav-link[onclick*="${cat}"]`).classList.add('active');
+  renderCourses(cat);
+}
+
+// Initial setup
+document.head.innerHTML += '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">';
+renderCourses('business');
+</script>
+
+  <script>
+  function scrollCourses(offset) {
+    document.getElementById('coursesRow').scrollBy({left: offset, behavior: 'smooth'});
+  }
+</script>
+
+
+  <!-- Accreditations Section with scrolling logos -->
+  <section class="accreditations" id="accreditations">
+    <h2 class="section-title">Our Accreditations & Partnerships</h2>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <!-- 13 logos repeated for seamless scroll -->
+        
+        <div class="logo-item"><img src="/static/images/logo2.html" alt="Logo 2"></div>
+        <div class="logo-item"><img src="/static/images/logo3.html" alt="Logo 3"></div>
+        <div class="logo-item"><img src="/static/images/logo4.html" alt="Logo 4"></div>
+        <div class="logo-item"><img src="/static/images/logo5.html" alt="Logo 5"></div>
+        <div class="logo-item"><img src="/static/images/logo6.html" alt="Logo 6"></div>
+        <div class="logo-item"><img src="/static/images/logo7.html" alt="Logo 7"></div>
+        <div class="logo-item"><img src="/static/images/logo8.html" alt="Logo 8"></div>
+        <div class="logo-item"><img src="/static/images/logo9.html" alt="Logo 9"></div>
+        <div class="logo-item"><img src="/static/images/logo10.html" alt="Logo 10"></div>
+        <div class="logo-item"><img src="/static/images/logo11.html" alt="Logo 11"></div>
+        <div class="logo-item"><img src="/static/images/logo12.html" alt="Logo 12"></div>
+        <div class="logo-item"><img src="/static/images/logo13.html" alt="Logo 13"></div>
+
+        <!-- duplicate logos for smooth continuous scroll -->
+      
+        <div class="logo-item"><img src="/static/images/logo2.html" alt="Logo 2"></div>
+        <div class="logo-item"><img src="/static/images/logo3.html" alt="Logo 3"></div>
+        <div class="logo-item"><img src="/static/images/logo4.html" alt="Logo 4"></div>
+        <div class="logo-item"><img src="/static/images/logo5.html" alt="Logo 5"></div>
+        <div class="logo-item"><img src="/static/images/logo6.html" alt="Logo 6"></div>
+        <div class="logo-item"><img src="/static/images/logo7.html" alt="Logo 7"></div>
+        <div class="logo-item"><img src="/static/images/logo8.html" alt="Logo 8"></div>
+        <div class="logo-item"><img src="/static/images/logo9.html" alt="Logo 9"></div>
+        <div class="logo-item"><img src="/static/images/logo10.html" alt="Logo 10"></div>
+        <div class="logo-item"><img src="/static/images/logo11.html" alt="Logo 11"></div>
+        <div class="logo-item"><img src="/static/images/logo12.html" alt="Logo 12"></div>
+        <div class="logo-item"><img src="/static/images/logo13.html" alt="Logo 13"></div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Journey of Our Learners Section (Card Style) -->
+<section class="journey" id="journey">
+  <h2 class="section-title">Journey Of Our Learners</h2>
+  <div class="journey-grid">
+
+    <!-- Learner Card Example -->
+    <div class="learner-card">
+      <img src="/static/images/pic1.jpeg" alt="Padmini Kadhirvel">
+      <h3>Padmini Kadhirvel</h3>
+      <p class="company">TachoMind</p>
+      <ul class="career-path">
+        <li>Online Support Associate</li>
+        <li>After SKILLFORGE → <strong>Automation Testing Engineer</strong></li>
+      </ul>
+    </div>
+
+    <div class="learner-card">
+      <img src="/static/images/pic2.jpeg" alt="B Swathy">
+      <h3>B Swathy</h3>
+      <p class="company">SmartHealth</p>
+      <ul class="career-path">
+        <li>Associate</li>
+        <li>After SKILLFORGE → <strong>UI/UX Designer</strong></li>
+      </ul>
+    </div>
+
+    <div class="learner-card">
+      <img src="/static/images/men1.jpeg" alt="Vignesh G">
+      <h3>Vignesh G</h3>
+      <p class="company">GNIRUL</p>
+      <ul class="career-path">
+        <li>Fresher, Msc (Arts & Science)</li>
+        <li>After SKILLFORGE → <strong>Junior Developer</strong></li>
+      </ul>
+    </div>
+
+    <div class="learner-card">
+      <img src="/static/images/pic3.jpeg" alt="Ramapriya Prasathe">
+      <h3>Ramapriya Prasathe</h3>
+      <p class="company">RemitBee</p>
+      <ul class="career-path">
+        <li>9 years gap after graduation</li>
+        <li>After SKILLFORGE → <strong>Automation Testing Engineer</strong></li>
+      </ul>
+    </div>
+
+    <div class="learner-card">
+      <img src="/static/images/men2.jpeg" alt="Prasanth">
+      <h3>Prasanth</h3>
+      <p class="company">Pixis</p>
+      <ul class="career-path">
+        <li>9 years gap after graduation</li>
+        <li>After SKILLFORGE → <strong>Automation Testing Engineer</strong></li>
+      </ul>
+    </div>
+
+    <div class="learner-card">
+      <img src="/static/images/men3.jpeg" alt="Manikandan">
+      <h3>Manikandan</h3>
+      <p class="company">Flipsar</p>
+      <ul class="career-path">
+        <li>9 years gap after graduation</li>
+        <li>After SKILLFORGE → <strong>Automation Testing Engineer</strong></li>
+      </ul>
+    </div>
+
+    <div class="learner-card">
+      <img src="/static/images/pic4.jpeg" alt="Priya">
+      <h3>Priya</h3>
+      <p class="company">urbanrise</p>
+      <ul class="career-path">
+        <li>9 years gap after graduation</li>
+        <li>After SKILLFORGE → <strong>Automation Testing Engineer</strong></li>
+      </ul>
+    </div>
+
+    <div class="learner-card">
+      <img src="/static/images/pic5.jpeg" alt="Arthi">
+      <h3>Arthi</h3>
+      <p class="company">RemitBee</p>
+      <ul class="career-path">
+        <li>9 years gap after graduation</li>
+        <li>After SKILLFORGE → <strong>Automation Testing Engineer</strong></li>
+      </ul>
+    </div>
+
+    <div class="learner-card">
+      <img src="/static/images/pic6.jpeg" alt="Preethi">
+      <h3>Preethi</h3>
+      <p class="company">AIQOD</p>
+      <ul class="career-path">
+        <li>9 years gap after graduation</li>
+        <li>After SKILLFORGE → <strong>Automation Testing Engineer</strong></li>
+      </ul>
+    </div>
+
+    <div class="learner-card">
+      <img src="/static/images/men4.jpeg" alt="Madavan">
+      <h3>Madavan</h3>
+      <p class="company">Flipsar</p>
+      <ul class="career-path">
+        <li>9 years gap after graduation</li>
+        <li>After SKILLFORGE → <strong>Automation Testing Engineer</strong></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🔹 What Our Learners Are Saying Section -->
+<section class="reviews" id="reviews">
+  <h2 class="section-title">What Our Learners Are Saying!</h2>
+  <div class="review-box">
+    <img src="/static/images/googlelogo.html" alt="Google Logo" class="google-logo">
+    <div class="review-content">
+      <h3>Rated <span class="rating">⭐⭐⭐⭐☆ 4.3 / 5.0</span></h3>
+      <p>More than <strong>2500 Google Reviews</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- 🔹 Where Do Our Students Work Section -->
+<section class="companies" id="companies">
+  <h2 class="section-title">Where Do Our Students Work?</h2>
+
+  <!-- Row 1: Left to Right -->
+  <div class="company-marquee">
+    <div class="company-track ltr">
+      <div class="company-item"><img src="/static/images/ig1.html" alt="Company 1"></div>
+      <div class="company-item"><img src="/static/images/ig2.html" alt="Company 2"></div>
+      <div class="company-item"><img src="/static/images/ig3.html" alt="Company 3"></div>
+      <div class="company-item"><img src="/static/images/ig4.html" alt="Company 4"></div>
+      <div class="company-item"><img src="/static/images/ig5.html" alt="Company 5"></div>
+      <div class="company-item"><img src="/static/images/ig6.html" alt="Company 6"></div>
+      <div class="company-item"><img src="/static/images/ig7.html" alt="Company 7"></div>
+      <div class="company-item"><img src="/static/images/ig8.html" alt="Company 8"></div>
+      <div class="company-item"><img src="/static/images/ig9.html" alt="Company 9"></div>
+
+      <!-- Duplicate for seamless scroll -->
+      <div class="company-item"><img src="/static/images/ig1.html" alt="Company 1"></div>
+      <div class="company-item"><img src="/static/images/ig2.html" alt="Company 2"></div>
+      <div class="company-item"><img src="/static/images/ig3.html" alt="Company 3"></div>
+      <div class="company-item"><img src="/static/images/ig4.html" alt="Company 4"></div>
+      <div class="company-item"><img src="/static/images/ig5.html" alt="Company 5"></div>
+      <div class="company-item"><img src="/static/images/ig6.html" alt="Company 6"></div>
+      <div class="company-item"><img src="/static/images/ig7.html" alt="Company 7"></div>
+      <div class="company-item"><img src="/static/images/ig8.html" alt="Company 8"></div>
+      <div class="company-item"><img src="/static/images/ig9.html" alt="Company 9"></div>
+    </div>
+  </div>
+
+  <!-- Row 2: Right to Left -->
+  <div class="company-marquee">
+    <div class="company-track rtl">
+      <div class="company-item"><img src="/static/images/ig10.html" alt="Company 10"></div>
+      <div class="company-item"><img src="/static/images/ig11.html" alt="Company 11"></div>
+      <div class="company-item"><img src="/static/images/ig12.html" alt="Company 12"></div>
+      <div class="company-item"><img src="/static/images/ig13.html" alt="Company 13"></div>
+      <div class="company-item"><img src="/static/images/ig14.html" alt="Company 14"></div>
+      <div class="company-item"><img src="/static/images/ig15.html" alt="Company 15"></div>
+      <div class="company-item"><img src="/static/images/ig16.html" alt="Company 16"></div>
+      <div class="company-item"><img src="/static/images/ig17.html" alt="Company 17"></div>
+      <div class="company-item"><img src="/static/images/ig27.html" alt="Company 18"></div>
+
+      <!-- Duplicate for seamless scroll -->
+      <div class="company-item"><img src="/static/images/ig10.html" alt="Company 10"></div>
+      <div class="company-item"><img src="/static/images/ig11.html" alt="Company 11"></div>
+      <div class="company-item"><img src="/static/images/ig12.html" alt="Company 12"></div>
+      <div class="company-item"><img src="/static/images/ig13.html" alt="Company 13"></div>
+      <div class="company-item"><img src="/static/images/ig14.html" alt="Company 14"></div>
+      <div class="company-item"><img src="/static/images/ig15.html" alt="Company 15"></div>
+      <div class="company-item"><img src="/static/images/ig16.html" alt="Company 16"></div>
+      <div class="company-item"><img src="/static/images/ig17.html" alt="Company 17"></div>
+      <div class="company-item"><img src="/static/images/ig27.html" alt="Company 18"></div>
+    </div>
+  </div>
+
+  <!-- Row 3: Left to Right -->
+  <div class="company-marquee">
+    <div class="company-track ltr">
+      <div class="company-item"><img src="/static/images/ig18.html" alt="Company 19"></div>
+      <div class="company-item"><img src="/static/images/ig19.html" alt="Company 20"></div>
+      <div class="company-item"><img src="/static/images/ig20.html" alt="Company 21"></div>
+      <div class="company-item"><img src="/static/images/ig21.html" alt="Company 22"></div>
+      <div class="company-item"><img src="/static/images/ig22.html" alt="Company 23"></div>
+      <div class="company-item"><img src="/static/images/ig23.html" alt="Company 24"></div>
+      <div class="company-item"><img src="/static/images/ig24.html" alt="Company 25"></div>
+      <div class="company-item"><img src="/static/images/ig25.html" alt="Company 26"></div>
+      <div class="company-item"><img src="/static/images/ig26.html" alt="Company 27"></div>
+
+      <!-- Duplicate for seamless scroll -->
+      <div class="company-item"><img src="/static/images/ig18.html" alt="Company 19"></div>
+      <div class="company-item"><img src="/static/images/ig19.html" alt="Company 20"></div>
+      <div class="company-item"><img src="/static/images/ig20.html" alt="Company 21"></div>
+      <div class="company-item"><img src="/static/images/ig21.html" alt="Company 22"></div>
+      <div class="company-item"><img src="/static/images/ig22.html" alt="Company 23"></div>
+      <div class="company-item"><img src="/static/images/ig23.html" alt="Company 24"></div>
+      <div class="company-item"><img src="/static/images/ig24.html" alt="Company 25"></div>
+      <div class="company-item"><img src="/static/images/ig25.html" alt="Company 26"></div>
+      <div class="company-item"><img src="/static/images/ig26.html" alt="Company 27"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 🔹 Stats Section -->
+<section class="stats" id="stats" style="padding:60px 20px 20px;"> <!-- reduced bottom padding -->
+  <div class="container">
+    <h2 class="section-title text-center mb-5">We Are Proud Of...</h2>
+
+    <!-- 🔹 Top Row - 4 Stats -->
+    <div class="row text-center mb-0"> <!-- removed mb-4 -->
+      <div class="col-md-3 col-6 mb-4 stat">
+        <h3 class="stat-number" data-target="4147313">0</h3>
+        <p class="stat-text">Learners</p>
+      </div>
+      <div class="col-md-3 col-6 mb-4 stat">
+        <h3 class="stat-number" data-target="194">0</h3>
+        <p class="stat-text">Mentors</p>
+      </div>
+      <div class="col-md-3 col-6 mb-4 stat">
+        <h3 class="stat-number" data-target="52924952">0</h3>
+        <p class="stat-text">Lines of Code Submitted</p>
+      </div>
+      <div class="col-md-3 col-6 mb-4 stat">
+        <h3 class="stat-number" data-target="1673">0</h3>
+        <p class="stat-text">Videos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🔹 Bottom Row - Circular Stats (GUVI style) -->
+<section class="stats-bottom" style="background:#fff; padding:0 20px 60px;"> <!-- top padding removed -->
+  <div class="container text-center">
+    <div class="row justify-content-center">
+      <!-- 72% -->
+      <div class="col-md-4 col-12 mb-4">
+        <div class="circle-progress" data-percentage="72">
+          <svg viewBox="0 0 36 36" class="circular-chart orange">
+            <path class="circle-bg"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle"
+              stroke-dasharray="0, 100"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.5" text-anchor="middle" class="percentage">0%</text>
+          </svg>
+        </div>
+        <p class="stat-text mt-3">of Learners complete their courses within 3 months</p>
+      </div>
+
+      <!-- 78% -->
+      <div class="col-md-4 col-12 mb-4">
+        <div class="circle-progress" data-percentage="78">
+          <svg viewBox="0 0 36 36" class="circular-chart orange">
+            <path class="circle-bg"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle"
+              stroke-dasharray="0, 100"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.5" text-anchor="middle" class="percentage">0%</text>
+          </svg>
+        </div>
+        <p class="stat-text mt-3">of Learners could recollect the concepts faster</p>
+      </div>
+
+      <!-- 84% -->
+      <div class="col-md-4 col-12 mb-4">
+        <div class="circle-progress" data-percentage="84">
+          <svg viewBox="0 0 36 36" class="circular-chart orange">
+            <path class="circle-bg"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle"
+              stroke-dasharray="0, 100"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.5" text-anchor="middle" class="percentage">0%</text>
+          </svg>
+        </div>
+        <p class="stat-text mt-3">of Learners have better understanding over complex topics</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <script>
+// 🔹 Top row number counters
+document.querySelectorAll('.stat-number').forEach(counter => {
+  const target = +counter.getAttribute('data-target');
+  let count = 0;
+  const step = target / 200;
+  const update = () => {
+    if (count < target) {
+      count += step;
+      counter.innerText = Math.ceil(count).toLocaleString();
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target.toLocaleString();
+    }
+  };
+  update();
+});
+
+// 🔹 Circular percentage counters
+document.querySelectorAll('.circle-progress').forEach(circle => {
+  const percentage = +circle.getAttribute('data-percentage');
+  const circlePath = circle.querySelector('.circle');
+  const text = circle.querySelector('.percentage');
+  let current = 0;
+  const animate = () => {
+    if (current <= percentage) {
+      const dash = (current / 100) * 100;
+      circlePath.setAttribute('stroke-dasharray', `${dash}, 100`);
+      text.textContent = current + '%';
+      current++;
+      requestAnimationFrame(animate);
+    }
+  };
+  animate();
+});
+</script>
+
+
+  <section class="corporate-section">
+  <h1>SKILLFORGE for Corporates</h1>
+  <p>Explore our customized corporate solutions for your company!</p>
+  <div class="corporate-features">
+    <div class="corporate-feature">
+      <div class="corporate-feature-icon"><i class="bi bi-building"></i></div>
+      <div class="corporate-feature-title">Specialized Corporate Training</div>
+    </div>
+    <div class="corporate-feature">
+      <div class="corporate-feature-icon"><i class="bi bi-people"></i></div>
+      <div class="corporate-feature-title">Streamlined Corporate Hiring</div>
+    </div>
+    <div class="corporate-feature">
+      <div class="corporate-feature-icon"><i class="bi bi-person-lines-fill"></i></div>
+      <div class="corporate-feature-title">Corporate Social Responsibility</div>
+    </div>
+    <div class="corporate-feature">
+      <div class="corporate-feature-icon"><i class="bi bi-bar-chart-line"></i></div>
+      <div class="corporate-feature-title">HYRE assessment</div>
+    </div>
+    <div class="corporate-feature">
+      <div class="corporate-feature-icon"><i class="bi bi-arrow-left-right"></i></div>
+      <div class="corporate-feature-title">End-to-End Campus Hiring</div>
+    </div>
+  </div>
+  </section>
+
+  <div class="section">
+    <div class="left">
+      <!-- Replace 'image.jpg' with your file path -->
+      <img src="/static/images/study1.jpeg" alt="Student Thumbs Up">
+    </div>
+    <div class="right">
+      <h1>Leading EdTech Platform for Learning in Native Languages.</h1>
+      <p>
+        SKILLFORGE, backed by IIT-M, IIM-A, and HCL, is India’s top tech-driven EdTech platform for learning 
+        in regional and global languages. With 3M+ learners worldwide, it offers personalized online learning, 
+        upskilling, and job opportunities.
+      </p>
+      <div class="acronym">
+        SKILLFORGE– <span><u>S</u>mart <u>K</u>nowledge <u>I</u>ntegration <u>L</u>eadership <u>L</u>earning <u>F</u>ostering <u>O</u>pportunities <u>R</u>esilience <u>G</u>rowth <u>E</u>xcellence</span>
+      </div>
+    </div>
+    </div>
+
+
+  <!-- Free Resources Section -->
+  <section class="resources" id="resources">
+    <h2>Find Our Perfect Free Resources</h2>
+    <p>Enhance Your Skills Now! Access hundreds of free courses, tutorials, and projects.</p>
+    <a href="#" class="btn btn-primary btn-lg">Explore Free Resources</a>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <h3>SKILLFORGE</h3>
+    <p>Leading EdTech platform for learning in native and global languages. Empowering 3M+ learners worldwide.</p>
+    <div class="my-3">
+      <a href="#">Facebook</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+    <p>© 2025 SkillForge. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
